@@ -122,6 +122,10 @@ htmlScopeApp.controller('MainCtrl', function ($scope, slidenav) {
 
     function applySrcSelection() {
         var ch = $scope.tmpChannel;
+        if (!ch.active) {
+            $scope.channels[ch.number].active = false;
+            return;
+        }
         selectSource(ch.number, ch.srcType, ch.srcOptions);
         selectScreen('home');
     }
@@ -238,7 +242,7 @@ htmlScopeApp.controller('MainCtrl', function ($scope, slidenav) {
         //$scope.datasource.setControls($scope.signalOptions);
 
         lines = prepLines();
-        $scope.plot = $.plot("#graph", lines, settings);
+        $scope.plot = $.plot("#graph-inner", lines, settings);
     }
 
 

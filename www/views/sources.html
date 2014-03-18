@@ -12,10 +12,8 @@
                     </li>
                 </ul>
             </div>
-            <span></span>
-
             <span class="input-group-addon">
-                <input type="checkbox" ng-checked="tmpChannel.active">
+                <button type="button" class="btn btn-default pull-right" ng-click="applySrcSelection()">Ok</button>
             </span>
 
         </div>
@@ -27,6 +25,9 @@
     Type
     <select ng-model="tmpChannel.srcType" ng-options="srcType for srcType in srcTypes">
     </select>
+    Enable:
+    <input type="checkbox" ng-checked="tmpChannel.active">
+
 </div>
 
 
@@ -36,19 +37,14 @@
         <div class="source-controls">
             <ul class="list-group">
                 <li class="list-group-item">
-                    <h3>Simulated source</h3>
-                </li>
-                <li class="list-group-item">
                     Waveform1:
                     <select name="waveform" ng-model="tmpChannel.srcOptions.waveform" ng-options="x for x in ['Sine', 'Triangle', 'Square', 'Unity', 'Random']">
                     </select>
-                    {{tmpChannel.srcOptions.waveform}}
                 </li>
                 <li class="list-group-item">
                     Mode:
                     <select name="mode" ng-model="tmpChannel.srcOptions.mode" ng-options="x for x in ['Wave', 'Stream']">
                     </select>
-                    {{tmpChannel.srcOptions.mode}}
                 </li>
                 <li class="list-group-item">
                     Timeslice
@@ -62,9 +58,6 @@
 
         <div class="source-controls">
             <ul class="list-group">
-                <li class="list-group-item">
-                    <h3>Audio source</h3>
-                </li>
                 <li class="list-group-item">
                     Channel:
                     <input type="radio" name="channel" value="Left" ng-model="tmpChannel.srcOptions.channel">
@@ -86,4 +79,3 @@
     </div>
 </div>
 
-<button type="button" class="btn btn-default" ng-click="applySrcSelection()">Ok</button>
